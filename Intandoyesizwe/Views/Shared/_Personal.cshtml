@@ -1,0 +1,130 @@
+﻿@model Intandoyesizwe.Models.View_Models.PersonalVM
+<!DOCTYPE html>
+<html>
+<body>
+    @using (Html.BeginForm("Personal", "AdmissionApplication", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="row mb-12">
+                <div class="col-md-4">
+                    <label>Grade Applying For:</label>
+                    @Html.EditorFor(model => model.grade, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.grade, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4">
+                    <label>Highest Grade Passed:</label>
+                    @Html.EditorFor(model => model.prevGrade, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.prevGrade, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4">
+                    <label>Year When Grade Was Passed:</label>
+                    @Html.EditorFor(model => model.prevGradeYear, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.prevGradeYear, "", new { @class = "text-danger" })
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="row mb-12">
+                <div class="col-md-6">
+                    <label>First Name:</label>
+                    @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-6">
+                    <label>Other Name:</label>
+                    @Html.EditorFor(model => model.otherNames, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.otherNames, "", new { @class = "text-danger" })
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="row mb-12">
+                <div class="col-md-5">
+                    <label>Surname:</label>
+                    @Html.EditorFor(model => model.surname, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.surname, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-2">
+                    <label>Initials:</label>
+                    @Html.EditorFor(model => model.initials, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.initials, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-5">
+                    <label>Nick Name:</label>
+                    @Html.EditorFor(model => model.nickname, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.nickname, "", new { @class = "text-danger" })
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="row mb-12">
+                <div class="col-md-4">
+                    <label>ID No:</label>
+                    @Html.EditorFor(model => model.idNo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.idNo, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4">
+                    <label>Race:</label>
+                    @Html.DropDownListFor(model => model.race, new[]{
+                                        new SelectListItem(){Text="Black",Value="Black"},
+                                        new SelectListItem(){Text="White",Value="White"},
+                                        new SelectListItem(){Text="Indian",Value="Indian"},
+                                        new SelectListItem(){Text="Colored",Value="Colored"},
+                                        new SelectListItem(){Text="Other",Value="Other"},
+                                        }, "Select Race", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.race, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4">
+                    <label>Dixterity of Learner:</label>
+                    @Html.DropDownListFor(model => model.dexterity, new[]{
+                                        new SelectListItem(){Text="Left Hand",Value="Left Hand"},
+                                        new SelectListItem(){Text="Right Hand",Value="Right Hand"},
+                                        new SelectListItem(){Text="Ambidextrous",Value="Ambidextrous"},
+                                        }, "Select Hand", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.dexterity, "", new { @class = "text-danger" })
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="row mb-12">
+                <div class="col-md-6">
+                    <label>Registered for Social Grant?:</label>
+                    <div class="radio-inline">
+                        <label>
+                            @Html.RadioButtonFor(model => model.regSocGrant, "YES") YES
+                        </label>
+                    </div>
+                    <div class="radio-inline">
+                        <label>
+                            @Html.RadioButtonFor(model => model.regSocGrant, "NO") NO
+                        </label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.regSocGrant, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-6">
+                    <label>Receive Social Grant?:</label>
+                    <div class="radio-inline">
+                        <label>
+                            @Html.RadioButtonFor(model => model.recSocGrant, "YES") YES
+                        </label>
+                    </div>
+                    <div class="radio-inline">
+                        <label>
+                            @Html.RadioButtonFor(model => model.recSocGrant, "NO") NO
+                        </label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.recSocGrant, "", new { @class = "text-danger" })
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Next" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</body>
+</html>

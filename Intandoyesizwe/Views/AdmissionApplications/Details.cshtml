@@ -1,0 +1,407 @@
+﻿@model Intandoyesizwe.Models.AdmissionApplication
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    More Info
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li><a href="#">Tables</a></li>
+                    <li><a href="#">Applications</a></li>
+                    <li class="active">info</li>
+                </ol>
+            </section>
+            <section class="content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box">
+                        <div class="text-center"><h2>@Model.Personal.fullName (@Model.Personal.nickname)</h2></div>
+                        <div class="box-body">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        @if (Model.Personal.gender == "Male")
+                                        {
+                                            <h3 class="line-head"><i class="tf-profile-male"></i> Personal</h3>
+                                        }
+                                        @if (Model.Personal.gender == "Female")
+                                        {
+                                            <h3 class="line-head"><i class="tf-profile-female"></i> Personal</h3>
+                                        }
+                                        <div class="body bg-gray">
+                                            <dl class="dl-horizontal">
+                                                <dt>
+                                                    @Html.DisplayName("Full Name")
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Personal.fullName)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Personal.nickname)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Personal.nickname)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Personal.idNo)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Personal.idNo)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Personal.dob)
+                                                </dt>
+
+                                                <dd>
+                                                    @Model.Personal.dob.ToString("dd-MMM-yyyy")
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Personal.gender)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Personal.gender)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Personal.race)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Personal.race)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Contact.learnerNo)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Contact.learnerNo)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Contact.Email)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Contact.Email)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Personal.dexterity)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Personal.dexterity)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Personal.regSocGrant)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Personal.regSocGrant)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Personal.recSocGrant)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Personal.recSocGrant)
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        @*<h3 class="line-head"><i class="tf-ion-university"></i> School</h3>*@
+                                        <div class="body bg-gray">
+                                            <dl class="dl-horizontal">
+                                                <dt>
+                                                    @Html.DisplayName("Grade Applied For")
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.grade)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.year)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.year)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.prevGrade)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.prevGrade)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.prevGradeYear)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.prevGradeYear)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.PrevSchool.schoolName)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.PrevSchool.schoolName)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.PrevSchool.province)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.PrevSchool.province)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.PrevSchool.street)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.PrevSchool.street)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.PrevSchool.suburb)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.PrevSchool.suburb)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.PrevSchool.city)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.PrevSchool.city)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.PrevSchool.code)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.PrevSchool.code)
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <h3 class="line-head"><i class="tf-ion-home"></i> Parent/Guardian Info</h3>
+                                        <div class="body bg-gray">
+                                            <dl class="dl-horizontal">
+                                                <dt>
+                                                    @Html.DisplayName("Name")
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Parent.fullName)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Parent.initials)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Parent.initials)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Parent.idNo)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Parent.idNo)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Parent.occupation)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Parent.occupation)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Parent.resideswith)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Parent.resideswith)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Parent.relationship)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Parent.relationship)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Parent.numberOfOtherChildren)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Parent.numberOfOtherChildren)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Parent.familyPosition)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Parent.familyPosition)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Contact.homeNo)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Contact.homeNo)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Contact.emergNo)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Contact.emergNo)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayName(" ")
+                                                </dt>
+
+                                                <dd class="text-danger">
+                                                    Physical Address
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.PhysicalAddress.street)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.PhysicalAddress.street)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.PhysicalAddress.suburb)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.PhysicalAddress.suburb)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.PhysicalAddress.city)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.PhysicalAddress.city)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.PhysicalAddress.code)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.PhysicalAddress.code)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayName(" ")
+                                                </dt>
+
+                                                <dd class="text-danger">
+                                                    Postal Address
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Correspondence.title)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Correspondence.title)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Correspondence.lastName)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Correspondence.lastName)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Correspondence.firstLine)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Correspondence.firstLine)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Correspondence.city)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Correspondence.city)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.Correspondence.code)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.Correspondence.code)
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<div class="col-md-4">
+                                    
+                                </div>*@
+                            </div> 		<!-- End row -->
+                        </div>   	<!-- End container -->
+                    </div>
+                </div>
+        </section>   <!-- End section -->
+    </div>
+    <!-- /.content-wrapper -->
+    </div>
+    <!-- ./wrapper -->
+</body>
+</html>

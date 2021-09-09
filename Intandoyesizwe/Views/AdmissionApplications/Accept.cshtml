@@ -1,0 +1,43 @@
+﻿@{
+Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="wrapper">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Accept Student
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#">Tables</a></li>
+                <li><a href="#">Applications</a></li>
+                <li class="active">Accept</li>
+            </ol>
+        </section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-body">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                                <h4>Are you sure you want to Accept this Learner?</h4>
+                                <h5>Click "Confirm" below.</h5>
+                                <hr />
+                                <div class="form-actions no-color">
+                                    <input type="submit" value="Confirm" class="btn btn-success" /> |
+                                    @Html.ActionLink("Back to List", "Index")
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+</div>

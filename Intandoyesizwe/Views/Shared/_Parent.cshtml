@@ -1,0 +1,99 @@
+﻿@model Intandoyesizwe.Models.View_Models.ParentVM
+<!DOCTYPE html>
+<html>
+<body>
+    @using (Html.BeginForm("Parent", "AdmissionApplication", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="row mb-12">
+                <div class="col-md-2">
+                    <label>Title:</label>
+                    @Html.DropDownListFor(model => model.title, new[]{
+                        new SelectListItem(){Text="Mr.",Value="Mr."},
+                        new SelectListItem(){Text="Mrs.",Value="Mrs."},
+                        new SelectListItem(){Text="Miss.",Value="Miss."},
+                        }, "Select Title", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4">
+                    <label>Surname:</label>
+                    @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-2">
+                    <label>Initials:</label>
+                    @Html.EditorFor(model => model.initials, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.initials, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4">
+                    <label>First Name:</label>
+                    @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="row mb-12">
+                <div class="col-md-6">
+                    <label>ID Number:</label>
+                    @Html.EditorFor(model => model.idNo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.idNo, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-6">
+                    <label>Occupation:</label>
+                    @Html.EditorFor(model => model.occupation, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.occupation, "", new { @class = "text-danger" })
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="row mb-12">
+                <div class="col-md-6">
+                    <label>Learner resides with Parent:</label>
+                    <div class="radio-inline">
+                        <label>
+                            @Html.RadioButtonFor(model => model.resideswith, "YES") YES
+                        </label>
+                    </div>
+                    <div class="radio-inline">
+                        <label>
+                            @Html.RadioButtonFor(model => model.resideswith, "NO") NO
+                        </label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.resideswith, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-6">
+                    <label>Relationship to Learner:</label>
+                    @Html.EditorFor(model => model.relationship, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.relationship, "", new { @class = "text-danger" })
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="row mb-12">
+                <div class="col-md-6">
+                    <label>Number of Other Children at this School:</label>
+                    @Html.EditorFor(model => model.numberOfOtherChildren, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.numberOfOtherChildren, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-6">
+                    <label>Learner's Position in the Family(e.g first):</label>
+                    @Html.EditorFor(model => model.familyPosition, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.familyPosition, "", new { @class = "text-danger" })
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <br />
+            <div class="form-group">
+                <div>
+                    <input type="submit" value="Finish" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>

@@ -1,0 +1,82 @@
+﻿@model Intandoyesizwe.Models.View_Models.CheckStatus
+@using Intandoyesizwe.Models
+@{
+    ApplicationDbContext db = new ApplicationDbContext();
+}
+<section class="mail-success section page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12">
+                <div class="mail">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            <hr />
+                            <div class="row mb-12">
+                                <div class="col-md-12">
+                                    <label>Enter your ID Number:</label>
+                                    @Html.EditorFor(model => model.idNo, new { htmlAttributes = new { @class = "form-control" } })<input type="submit" value="Search" class="btn btn-primary" />
+                                    @Html.ValidationMessageFor(model => model.idNo, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    }
+                    <br />
+                    <br />
+                    <div class="row mb-12">
+                        <div class="card col-md-12">
+                            <div class="body bg-gray">
+                                @if (TempData["status"] != null)
+                                {
+                                    if (TempData["status"].ToString() == "Waiting")
+                                    {
+                                        <h2 class="text-warning">
+                                            Your Application is still waiting for Approval.
+                                        </h2>
+                                    }
+                                    if (TempData["status"].ToString() == "Accepted")
+                                    {
+                                        var adm = (AdmissionApplication)TempData["adm"];
+                                        <h2 class="text-success">
+                                            Your Application has been Accepted.
+                                        </h2>
+                                        <div class="text-success">
+                                            @if (adm != null)
+                                            {
+                                                <p>Hi @adm.Personal.firstName,</p>
+                                                <p>Congratulations! Your Admission Application was SUCCESSFUL,</p>
+                                                <p>Please come and <strong>bring your Parent/Guardian with your Documents</strong> to our school to finalize the process.</p>
+                                            }
+                                        </div>
+                                    }
+                                    if (TempData["status"].ToString() == "Rejected")
+                                    {
+                                        var adm = (AdmissionApplication)TempData["adm"];
+                                        <h2 class="text-danger">
+                                            Your Application has been Rejected.
+                                        </h2>
+                                        <div class="text-danger">
+                                            @if (adm != null)
+                                            {
+                                                <p>Hi @adm.Personal.firstName,</p>
+                                                <p>We regret to tell you that your Application has been rejected.</p>
+                                                <p>Reason: @adm.Rejected.reason</p>
+                                            }
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@Scripts.Render("~/bundles/jquery")
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

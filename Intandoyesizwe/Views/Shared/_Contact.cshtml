@@ -1,0 +1,129 @@
+﻿@model Intandoyesizwe.Models.View_Models.ContactVM
+<!DOCTYPE html>
+<html>
+<body>
+    @using (Html.BeginForm("Contact", "AdmissionApplication", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="col-md-6">
+                <div class="card">
+                    <h3 class="line-head"><i class="fa fa-calendar"></i> Contact Details</h3>
+                    <div class="body">
+                        <div>
+                            <div class="row mb-20">
+                                <div class="col-md-6">
+                                    <label>Home Contact:</label>
+                                    @Html.EditorFor(model => model.homeNo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.homeNo, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Emergency Contact:</label>
+                                    @Html.EditorFor(model => model.emergNo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.emergNo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row mb-20">
+                                <div class="col-md-6">
+                                    <label>Learner Contact:</label>
+                                    @Html.EditorFor(model => model.learnerNo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.learnerNo, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Learner Email Address:</label>
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row mb-20">
+                                <div class="col-md-12">
+                                    <label>Home Language:</label>
+                                    @Html.DropDownListFor(model => model.homeLanguage, new[]{
+                                            new SelectListItem(){Text="Zulu",Value="Zulu"},
+                                            new SelectListItem(){Text="English",Value="English"},
+                                            new SelectListItem(){Text="Xhosa",Value="Xhosa"},
+                                            new SelectListItem(){Text="Sotho",Value="Sotho"},
+                                            new SelectListItem(){Text="Tswana",Value="Tswana"},
+                                            new SelectListItem(){Text="Venda",Value="Venda"},
+                                            new SelectListItem(){Text="Tsonga",Value="Western Cape"},
+                                            new SelectListItem(){Text="Swati", Value="Swati"},
+                                            new SelectListItem(){Text="Ndebele", Value="Ndebele"},
+                                            new SelectListItem(){Text="Afrikaans", Value="Afrikaans"},
+                                            }, "Select Home Language", htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.homeLanguage, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row mb-20">
+                                <div class="col-md-6">
+                                    <label>Mode of Transport:</label>
+                                    @Html.DropDownListFor(model => model.transportMode, new[]{
+                                        new SelectListItem(){Text="Walking",Value="Walking"},
+                                        new SelectListItem(){Text="Public Transport",Value="Public Transport"},
+                                        new SelectListItem(){Text="Staff Transport",Value="Staff Transport"},
+                                        new SelectListItem(){Text="Own Transport",Value="Own Transport"},
+                                        }, "Select Transport Mode", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.transportMode, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Deceased Parent:</label>
+                                    @Html.DropDownListFor(model => model.deceasedParent, new[]{
+                                        new SelectListItem(){Text="Mother",Value="Mother"},
+                                        new SelectListItem(){Text="Father",Value="Father"},
+                                        new SelectListItem(){Text="Both",Value="Both"},
+                                        }, "Select Deceased Parent", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.deceasedParent, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <h3 class="line-head"><i class="fa fa-calendar"></i> Physical Address</h3>
+                    <div class="body">
+                        <div>
+                            <div class="row">
+                                <div class="col-md-12 mb-20">
+                                    <label>House Number/Street:</label>
+                                    @Html.EditorFor(model => model.street, new { htmlAttributes = new { placeholder = "Street", @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.street, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row mb-20">
+                                <div class="col-md-12">
+                                    <label>Suburb:</label>
+                                    @Html.EditorFor(model => model.suburb, new { htmlAttributes = new { placeholder = "Suburb", @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.suburb, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row mb-20">
+                                <div class="col-md-12">
+                                    <label>City:</label>
+                                    @Html.EditorFor(model => model.city, new { htmlAttributes = new { placeholder = "City", @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.city, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-20">
+                                    <label>Area Code:</label>
+                                    @Html.EditorFor(model => model.code, new { htmlAttributes = new { placeholder = "Code", @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.code, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div style="float: right">
+                    <input type="submit" value="Next" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>
